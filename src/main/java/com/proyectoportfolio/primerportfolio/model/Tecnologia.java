@@ -23,21 +23,21 @@ import lombok.Setter;
 @Entity
 
 
-public class Tecnología implements Serializable {
+public class Tecnologia implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE)
     private Long id;
     private String nombre;
     private String imagen;
     
-    @ManyToMany(mappedBy = "tecnologías")
-    @JsonIgnoreProperties(value="tecnologías")
+    @ManyToMany(mappedBy = "tecnologias")
+    @JsonIgnoreProperties(value="tecnologias")
     private Set<Persona> personas;
     
-    public Tecnología() {
+    public Tecnologia() {
     
 }
-    public Tecnología (String nombre,String imagen){
+    public Tecnologia (String nombre,String imagen){
         this.nombre = nombre;
         this.imagen = imagen;             
     }  

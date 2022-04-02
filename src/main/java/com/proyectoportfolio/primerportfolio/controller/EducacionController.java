@@ -1,8 +1,8 @@
 
 package com.proyectoportfolio.primerportfolio.controller;
 
-import com.proyectoportfolio.primerportfolio.model.Educación;
-import com.proyectoportfolio.primerportfolio.service.IEducaciónService;
+import com.proyectoportfolio.primerportfolio.model.Educacion;
+import com.proyectoportfolio.primerportfolio.service.IEducacionService;
 
 
 
@@ -24,46 +24,46 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 
 @CrossOrigin(origins = "http://localhost:4200")
-public class EducaciónController {
+public class EducacionController {
     @Autowired
-    private IEducaciónService interEducación;
+    private IEducacionService interEducacion;
     
-    @GetMapping("/educación")
-    public List<Educación> getEducaciones(){
-        return interEducación.getEducaciones();
+    @GetMapping("/educacion")
+    public List<Educacion> getEducaciones(){
+        return interEducacion.getEducaciones();
     }
     
-    @GetMapping("/educación/{id}")
-    public Educación findEducación(@PathVariable Long id){
-        Educación edu = interEducación.findEducación(id);
+    @GetMapping("/educacion/{id}")
+    public Educacion findEducacion(@PathVariable Long id){
+        Educacion edu = interEducacion.findEducacion(id);
         return edu;
     }
     
-    @PostMapping ("/educación")
-    public String createEducación (@RequestBody Educación edu){
-        interEducación.saveEducación(edu);
-        return "Educación fue creada correctamente";
+    @PostMapping ("/educacion")
+    public String createEducacion (@RequestBody Educacion edu){
+        interEducacion.saveEducacion(edu);
+        return "Educacion fue creada correctamente";
     }
     
-    @DeleteMapping ("/educación/{id}")
-    public String deleteEducación (@PathVariable Long id){
-        interEducación.deleteEducación(id);
-        return "Educación fue eliminada correctamente";
+    @DeleteMapping ("/educacion/{id}")
+    public String deleteEducacion (@PathVariable Long id){
+        interEducacion.deleteEducacion(id);
+        return "Educacion fue eliminada correctamente";
     }
     
-    @PutMapping ("educación/{id}")
-    public Educación editEducación (@PathVariable Long id,
+    @PutMapping ("educacion/{id}")
+    public Educacion editEducación (@PathVariable Long id,
                                 @RequestParam("titulo") String nuevoTitulo,
                                 @RequestParam ("lugar") String nuevoLugar,
                                 @RequestParam ("duracion") String nuevoDuracion){
         
-        Educación edu = interEducación.findEducación(id);
+        Educacion edu = interEducacion.findEducacion(id);
         edu.setTitulo(nuevoTitulo);
         edu.setLugar(nuevoLugar);
         edu.setDuracion(nuevoDuracion);
         
         
-        interEducación.saveEducación(edu);
+        interEducacion.saveEducacion(edu);
         return edu;
     }
 }

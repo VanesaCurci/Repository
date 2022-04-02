@@ -1,8 +1,8 @@
 
 package com.proyectoportfolio.primerportfolio.controller;
 
-import com.proyectoportfolio.primerportfolio.model.Tecnología;
-import com.proyectoportfolio.primerportfolio.service.ITecnologíaServicio;
+import com.proyectoportfolio.primerportfolio.model.Tecnologia;
+import com.proyectoportfolio.primerportfolio.service.ITecnologiaServicio;
 
 
 
@@ -24,43 +24,43 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 
 @CrossOrigin(origins = "http://localhost:4200")
-public class TecnologíaController {
+public class TecnologiaController {
     @Autowired
-    private ITecnologíaServicio interTecnología;
+    private ITecnologiaServicio interTecnologia;
     
-    @GetMapping("/tecnologías")
-    public List<Tecnología> getTecnologías(){
-        return interTecnología.getTecnologías();
+    @GetMapping("/tecnologias")
+    public List<Tecnologia> getTecnologias(){
+        return interTecnologia.getTecnologias();
     }
     
-   @GetMapping("/tecnologías/{id}")
-   public Tecnología findTecnología(@PathVariable Long id){
-   Tecnología tecno = interTecnología.findTecnología(id);
+   @GetMapping("/tecnologias/{id}")
+   public Tecnologia findTecnologia(@PathVariable Long id){
+   Tecnologia tecno = interTecnologia.findTecnologia(id);
    return tecno;}
    
-    @PostMapping ("/tecnologías")
-    public String createTecnología (@RequestBody Tecnología tecno){
-        interTecnología.saveTecnología(tecno);
+    @PostMapping ("/tecnologias")
+    public String createTecnologia (@RequestBody Tecnologia tecno){
+        interTecnologia.saveTecnologia(tecno);
         return "La tecnología fue creada correctamente";
     }
     
-    @DeleteMapping ("/tecnologías/borrar/{id}")
-    public String deleteTecnología (@PathVariable Long id){
-        interTecnología.deleteTecnología(id);
-        return "La tecnología fue eliminada correctamente";
+    @DeleteMapping ("/tecnologias/borrar/{id}")
+    public String deleteTecnologia (@PathVariable Long id){
+        interTecnologia.deleteTecnologia(id);
+        return "La tecnologia fue eliminada correctamente";
     }
     
-    @PutMapping ("/tecnologías/{id}")
-    public Tecnología editTecnología (@PathVariable Long id,
+    @PutMapping ("/tecnologias/{id}")
+    public Tecnologia editTecnologia (@PathVariable Long id,
                                 @RequestParam("nombre") String nuevoNombre,
                                 @RequestParam ("imagen") String nuevoImagen){
         
-        Tecnología tecno = interTecnología.findTecnología(id);
+        Tecnologia tecno = interTecnologia.findTecnologia(id);
         tecno.setNombre(nuevoNombre);
         tecno.setImagen(nuevoImagen);
         
         
-        interTecnología.saveTecnología(tecno);
+        interTecnologia.saveTecnologia(tecno);
         return tecno;
     }
 }

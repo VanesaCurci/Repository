@@ -59,13 +59,13 @@ public class Persona implements Serializable {
    })
    
    @JoinTable(
-           name = "persona_tecnología",
+           name = "persona_tecnologia",
            joinColumns = {@JoinColumn(name = "persona_id")},
-           inverseJoinColumns = {@JoinColumn(name = "tecnología_id")}
+           inverseJoinColumns = {@JoinColumn(name = "tecnologia_id")}
                  
    )
    
-   private Set<Tecnología>tecnologías;
+   private Set<Tecnologia>tecnologias;
    
    @ManyToMany( cascade = {
        CascadeType.PERSIST,
@@ -101,13 +101,13 @@ public class Persona implements Serializable {
    })
    
    @JoinTable(
-           name = "persona_educación",
+           name = "persona_educacion",
            joinColumns = {@JoinColumn(name = "persona_id")},
-           inverseJoinColumns = {@JoinColumn(name = "educación_id")}
+           inverseJoinColumns = {@JoinColumn(name = "educacion_id")}
                  
    )
    @JsonIgnoreProperties(value="personas")
-   private Set<Educación>educaciones;
+   private Set<Educacion>educaciones;
    
     
     public Persona() {

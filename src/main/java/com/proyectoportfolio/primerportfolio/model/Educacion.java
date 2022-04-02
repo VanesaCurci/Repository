@@ -14,7 +14,7 @@ import lombok.Setter;
 
 @Getter @Setter
 @Entity
-public class Educación implements Serializable {
+public class Educacion implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE)
     private Long id;
@@ -26,10 +26,10 @@ public class Educación implements Serializable {
     @JsonIgnoreProperties(value="educaciones")
     private Set<Persona> personas;
     
-    public Educación() {
+    public Educacion() {
     
 }
-    public Educación(String titulo, String lugar, String duracion){
+    public Educacion(String titulo, String lugar, String duracion){
         this.titulo = titulo;
         this.lugar = lugar;
         this.duracion = duracion;
