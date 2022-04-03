@@ -1,1 +1,1 @@
-web:java -Dserver.port=$PORT $JAVA_OPTS -jar target/primerportfolio-0.0.1.SNAPSHOT.jar
+web:java -jar target/primerportfolio-1.0.0.jar
