@@ -15,7 +15,11 @@
 	<description>hola</description>
 	<properties>
 		<java.version>11</java.version>
+<<<<<<< HEAD
                 <maven.compiler.source>1.8</maven.compiler.source>
+=======
+		<maven.compiler.source>1.8</maven.compiler.source>
+>>>>>>> b40e34624ecdf51523445f8003c4be2b7c8d8b7e
 	        <maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 	<dependencies>
@@ -114,9 +118,15 @@
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
 						</exclude>
+<<<<<<< HEAD
 					</excludes>   
                                         <source>1.8</source>
 	                                <target>1.8</target>                                  
+=======
+					</excludes>  
+					<source>1.8</source>
+	                                <target>1.8</target>
+>>>>>>> b40e34624ecdf51523445f8003c4be2b7c8d8b7e
 				</configuration>
 			</plugin>
 		</plugins>
