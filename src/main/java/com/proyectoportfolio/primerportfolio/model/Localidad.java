@@ -30,7 +30,7 @@ public class Localidad implements Serializable {
     private List<Persona> personas;
     
     @ManyToOne
-    @JoinColumn(name = "provinciaa_id")
+    @JoinColumn(name = "provincia_id")
     @JsonBackReference
     private Provincia provincia;
             
