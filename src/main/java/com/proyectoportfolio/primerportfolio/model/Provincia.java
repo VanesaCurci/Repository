@@ -22,7 +22,7 @@ public class Provincia implements Serializable {
     private String nombre;
     
     @OneToMany(mappedBy = "provincia", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    
     private List<Localidad> localidades;
     
     public Provincia() {

@@ -22,7 +22,7 @@ public class Proyecto implements Serializable {
   private String descripcion;
   
   @ManyToMany(mappedBy = "proyectos")
-  @JsonIgnoreProperties(value="proyectos")
+  
   private Set<Persona> personas;
   
   public Proyecto() {

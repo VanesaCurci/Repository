@@ -31,7 +31,7 @@ public class Tecnologia implements Serializable {
     private String imagen;
     
     @ManyToMany(mappedBy = "tecnologias")
-    @JsonIgnoreProperties(value="tecnologias")
+    
     private Set<Persona> personas;
     
     public Tecnologia() {

@@ -45,12 +45,12 @@ public class Persona implements Serializable {
     
    @JoinColumn(name = "id_contacto")
    @OneToOne(fetch = FetchType.LAZY)
-   @JsonBackReference
+   
    private Contacto contacto;
    
    @ManyToOne
    @JoinColumn(name = "localidad_id")
-   @JsonBackReference
+   
    private Localidad localidad;
   
    @ManyToMany( cascade = {
@@ -78,7 +78,7 @@ public class Persona implements Serializable {
            inverseJoinColumns = {@JoinColumn(name = "proyecto_id")}
                  
    )
-   @JsonIgnoreProperties(value="personas")
+   
    private Set<Proyecto>proyectos;
    
    @ManyToMany( cascade = {
@@ -92,7 +92,7 @@ public class Persona implements Serializable {
            inverseJoinColumns = {@JoinColumn(name = "idioma_id")}
                  
    )
-   @JsonIgnoreProperties(value="personas")
+   
    private Set<Idioma>idiomas;
    
    @ManyToMany( cascade = {
@@ -106,7 +106,7 @@ public class Persona implements Serializable {
            inverseJoinColumns = {@JoinColumn(name = "educacion_id")}
                  
    )
-   @JsonIgnoreProperties(value="personas")
+   
    private Set<Educacion>educaciones;
    
     

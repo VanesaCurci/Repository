@@ -34,7 +34,7 @@ public class Contacto implements Serializable {
     
    @OneToOne(mappedBy = "contacto", cascade = CascadeType.ALL, orphanRemoval = true, 
               fetch=FetchType.LAZY)
-   @JsonManagedReference
+   
     private Persona persona;
 
     
