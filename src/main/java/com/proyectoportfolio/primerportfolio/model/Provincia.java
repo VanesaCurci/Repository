@@ -27,8 +27,8 @@ public class Provincia implements Serializable {
     private List<Localidad> localidades;
     
     public Provincia() {
-    
-}
+    }
+
     public Provincia(String nombre){
         this.nombre = nombre;
     }

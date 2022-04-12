@@ -119,7 +119,7 @@ public class Persona implements Serializable {
       
         this.nombre = nombre;
         this.apellido = apellido;
-        this.edad = edad;
+        this.edad = edad;     
         this.foto_perfil = foto_perfil;
         this.foto_fondo = foto_fondo;          
     }
