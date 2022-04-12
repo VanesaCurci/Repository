@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://portafolio-web-70535.web.app/")
 public class ProyectoController {
     @Autowired
     private IProyectoService interProyecto;
