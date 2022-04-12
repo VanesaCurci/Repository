@@ -43,14 +43,15 @@ public class Persona implements Serializable {
     private String foto_fondo;
     
     
-   @JoinColumn(name = "id_contacto")
-   @OneToOne(fetch = FetchType.LAZY)
    
+   @JoinColumn(name = "id_contacto")
+   @OneToOne
+   @JsonIgnoreProperties("persona")
    private Contacto contacto;
    
    @ManyToOne
    @JoinColumn(name = "localidad_id")
-   
+   @JsonIgnoreProperties("personas")
    private Localidad localidad;
   
    @ManyToMany( cascade = {
@@ -64,7 +65,7 @@ public class Persona implements Serializable {
            inverseJoinColumns = {@JoinColumn(name = "tecnologia_id")}
                  
    )
-   
+    @JsonIgnoreProperties("personas")
    private Set<Tecnologia>tecnologias;
    
    @ManyToMany( cascade = {
@@ -78,7 +79,7 @@ public class Persona implements Serializable {
            inverseJoinColumns = {@JoinColumn(name = "proyecto_id")}
                  
    )
-   
+   @JsonIgnoreProperties("personas")
    private Set<Proyecto>proyectos;
    
    @ManyToMany( cascade = {
@@ -92,7 +93,7 @@ public class Persona implements Serializable {
            inverseJoinColumns = {@JoinColumn(name = "idioma_id")}
                  
    )
-   
+   @JsonIgnoreProperties("personas")
    private Set<Idioma>idiomas;
    
    @ManyToMany( cascade = {
@@ -106,7 +107,7 @@ public class Persona implements Serializable {
            inverseJoinColumns = {@JoinColumn(name = "educacion_id")}
                  
    )
-   
+   @JsonIgnoreProperties("personas")
    private Set<Educacion>educaciones;
    
     

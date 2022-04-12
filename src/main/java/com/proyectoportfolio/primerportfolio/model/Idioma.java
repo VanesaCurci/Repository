@@ -22,7 +22,7 @@ public class Idioma implements Serializable {
     private Long nivel;
     
    @ManyToMany(mappedBy = "idiomas")
-   
+   @JsonIgnoreProperties("idiomas")
    private Set<Persona> personas;
     
     public Idioma() {

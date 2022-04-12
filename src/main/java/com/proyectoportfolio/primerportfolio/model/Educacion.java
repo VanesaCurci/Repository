@@ -23,7 +23,7 @@ public class Educacion implements Serializable {
     private String duracion;
     
     @ManyToMany(mappedBy = "educaciones")
-    
+    @JsonIgnoreProperties("educaciones")
     private Set<Persona> personas;
     
     public Educacion() {
