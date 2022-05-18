@@ -8,6 +8,7 @@ import com.proyectoportfolio.primerportfolio.service.IContactoService;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,18 +39,21 @@ public class ContactoController {
    Contacto conta = interContacto.findContacto(id);
    return conta;}
     
+   @PreAuthorize("hasRole('ADMIN')")
     @PostMapping ("/contactos")
     public String createContacto (@RequestBody Contacto conta){
         interContacto.saveContacto(conta);
         return "El contacto fue creado correctamente";
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping ("/contactos/borrar/{id}")
     public String deleteContacto (@PathVariable Long id){
         interContacto.deleteContacto(id);
         return "El contacto fue eliminado correctamente";
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping ("contactos/editar/{id}")
     public Contacto editContacto (@PathVariable Long id,
                                 @RequestParam("mail") String nuevoMail,

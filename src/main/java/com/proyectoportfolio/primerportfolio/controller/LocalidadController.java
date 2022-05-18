@@ -8,6 +8,7 @@ import com.proyectoportfolio.primerportfolio.service.ILocalidadService;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,18 +39,21 @@ public class LocalidadController {
    Localidad loca = interLocalidad.findLocalidad(id);
    return loca;}
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping ("/localidades")
     public String createLocalidad (@RequestBody Localidad loca){
         interLocalidad.saveLocalidad(loca);
         return "La localidad fue creada correctamente";
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping ("/localidades/borrar/{id}")
     public String deleteLocalidad (@PathVariable Long id){
         interLocalidad.deleteLocalidad(id);
         return "La localidad fue eliminada correctamente";
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping ("localidades/editar/{id}")
     public Localidad editLocalidad (@PathVariable Long id,
                                 @RequestParam("nombre") String nuevoNombre){

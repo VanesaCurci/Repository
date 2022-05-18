@@ -8,6 +8,7 @@ import com.proyectoportfolio.primerportfolio.service.IEducacionService;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,18 +40,21 @@ public class EducacionController {
         return edu;
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping ("/educacion")
     public String createEducacion (@RequestBody Educacion edu){
         interEducacion.saveEducacion(edu);
         return "Educacion fue creada correctamente";
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping ("/educacion/{id}")
     public String deleteEducacion (@PathVariable Long id){
         interEducacion.deleteEducacion(id);
         return "Educacion fue eliminada correctamente";
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping ("educacion/{id}")
     public Educacion editEducación (@PathVariable Long id,
                                 @RequestParam("titulo") String nuevoTitulo,

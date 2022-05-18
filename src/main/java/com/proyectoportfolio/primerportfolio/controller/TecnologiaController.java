@@ -8,6 +8,7 @@ import com.proyectoportfolio.primerportfolio.service.ITecnologiaServicio;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,18 +39,21 @@ public class TecnologiaController {
    Tecnologia tecno = interTecnologia.findTecnologia(id);
    return tecno;}
    
+   @PreAuthorize("hasRole('ADMIN')")
     @PostMapping ("/tecnologias")
     public String createTecnologia (@RequestBody Tecnologia tecno){
         interTecnologia.saveTecnologia(tecno);
         return "La tecnología fue creada correctamente";
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping ("/tecnologias/borrar/{id}")
     public String deleteTecnologia (@PathVariable Long id){
         interTecnologia.deleteTecnologia(id);
         return "La tecnologia fue eliminada correctamente";
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping ("/tecnologias/{id}")
     public Tecnologia editTecnologia (@PathVariable Long id,
                                 @RequestParam("nombre") String nuevoNombre,

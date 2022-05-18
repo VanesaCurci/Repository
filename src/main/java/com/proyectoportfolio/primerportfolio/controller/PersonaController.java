@@ -5,6 +5,7 @@ import com.proyectoportfolio.primerportfolio.model.Persona;
 import com.proyectoportfolio.primerportfolio.service.IPersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 
@@ -37,18 +38,21 @@ public class PersonaController {
     Persona perso = interPersona.findPersona(id);
     return perso;}
    
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping ("/personas")
     public String createPersona (@RequestBody Persona perso){
         interPersona.savePersona(perso);
         return "La persona fue creada correctamente";
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping ("/personas/borrar/{id}")
     public String deletePersona (@PathVariable Long id_persona){
         interPersona.deletePersona(id_persona);
         return "La persona fue eliminada correctamente";
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping ("personas/editar/{id}")
     public Persona editPersona (@PathVariable Long id_persona,
                                 @RequestParam("nombre") String nuevoNombre,

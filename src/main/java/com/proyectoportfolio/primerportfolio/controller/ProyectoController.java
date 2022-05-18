@@ -8,6 +8,7 @@ import com.proyectoportfolio.primerportfolio.service.IProyectoService;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,18 +39,21 @@ public class ProyectoController {
    Proyecto proye = interProyecto.findProyecto(id);
    return proye;}
     
+   @PreAuthorize("hasRole('ADMIN')")
     @PostMapping ("/proyectos")
     public String createProyecto (@RequestBody Proyecto proye){
         interProyecto.saveProyecto(proye);
         return "El proyecto fue creado correctamente";
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping ("/proyectos/{id}")
     public String deleteProyecto (@PathVariable Long id){
         interProyecto.deleteProyecto(id);
         return "El proyecto fue eliminado correctamente";
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping ("proyectos/{id}")
     public Proyecto editProyecto (@PathVariable Long id,
                                 @RequestParam("titulo") String nuevoTítulo,
