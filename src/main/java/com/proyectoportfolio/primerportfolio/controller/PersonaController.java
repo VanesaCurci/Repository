@@ -26,6 +26,7 @@ public class PersonaController {
     @Autowired
     private IPersonaService interPersona;
     
+    @CrossOrigin(origins = "https://portafolio-web-70535.web.app/")
     @GetMapping("/personas")
     public List<Persona> getPersonas(){
         return interPersona.getPersonas();
